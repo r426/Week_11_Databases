@@ -8,7 +8,7 @@ if conn.is_connected():
 cursor = conn.cursor()
 
 try:
-    # cursor.execute("CREATE TABLE tourneys(id int, name varchar(20), wins int, best int, size int);")
+    cursor.execute("CREATE TABLE tourneys(id int, name varchar(20), wins int, best int, size int);")
     cursor.execute("INSERT INTO tourneys values(1, 'John', 10, 240, 40);")
     cursor.execute("INSERT INTO tourneys values(2, 'Adda', 12, 140, 39);")
     cursor.execute("INSERT INTO tourneys values(3, 'Lynn', 8, 200, 38);")
@@ -21,7 +21,7 @@ except:
 
 cursor.execute('SELECT * FROM tourneys')
 rows = cursor.fetchall()
-print("Total Number of records", cursor.rowcount)
+print("Total number of records", cursor.rowcount)
 
 for row in rows:
     print(row)
@@ -42,7 +42,14 @@ except:
 
 cursor.execute('SELECT * FROM favorite_meals')
 rows = cursor.fetchall()
-print("Total Number of records", cursor.rowcount)
+print("Total number of records", cursor.rowcount)
+
+for row in rows:
+    print(row)
+
+cursor.execute('SELECT * FROM favorite_meals WHERE birth_month = "May"')
+rows = cursor.fetchall()
+print("Total number of records", cursor.rowcount)
 
 for row in rows:
     print(row)

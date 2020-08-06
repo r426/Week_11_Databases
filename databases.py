@@ -56,5 +56,3 @@ for row in rows:
 
 cursor.close()
 conn.close()
-
-conn.close()
